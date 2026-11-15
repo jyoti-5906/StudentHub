@@ -1,0 +1,521 @@
+
+/* =====================================
+   STUDENTHUB - GLOBAL STYLES
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --sidebar: #172554;
+    --background: #f4f7fc;
+    --white: #ffffff;
+    --text: #263247;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --success: #16a34a;
+    --danger: #dc2626;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    transition: 0.2s ease;
+}
+
+
+/* =====================================
+   MAIN LAYOUT
+===================================== */
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =====================================
+   SIDEBAR
+===================================== */
+
+.sidebar {
+    width: 240px;
+    min-width: 240px;
+    background: var(--sidebar);
+    color: white;
+    padding: 30px 20px;
+    min-height: 100vh;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 42px;
+    letter-spacing: -0.5px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar a {
+    color: #dbeafe;
+    text-decoration: none;
+    padding: 13px 15px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: var(--primary);
+    color: white;
+    transform: translateX(3px);
+}
+
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 38px;
+}
+
+header {
+    margin-bottom: 28px;
+}
+
+header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    color: var(--muted);
+    margin-top: 6px;
+    font-size: 15px;
+}
+
+
+/* =====================================
+   DASHBOARD CARDS
+===================================== */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin: 32px 0;
+}
+
+.card {
+    background: var(--white);
+    padding: 26px;
+    border-radius: 14px;
+    border: 1px solid #edf0f5;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+    transition: all 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.09);
+}
+
+.card h3 {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card h2 {
+    margin-top: 12px;
+    color: var(--primary);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+/* =====================================
+   CONTENT SECTIONS
+===================================== */
+
+.recent-students {
+    background: var(--white);
+    padding: 26px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+    border: 1px solid #edf0f5;
+}
+
+.recent-students h2 {
+    font-size: 21px;
+    margin-bottom: 5px;
+    color: #1e293b;
+}
+
+
+/* =====================================
+   TABLE DESIGN
+===================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+th {
+    background: #eff6ff;
+    color: #1e40af;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+tbody tr {
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =====================================
+   LINKS AND ACTION BUTTONS
+===================================== */
+
+.recent-students > div > a {
+    color: white;
+    background: var(--primary);
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.recent-students > div > a:hover {
+    background: var(--primary-dark);
+}
+
+td a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+
+/* Edit and Delete buttons */
+
+td form {
+    display: inline !important;
+    margin: 0 !important;
+    max-width: none !important;
+}
+
+td form button {
+    margin: 0 !important;
+    padding: 8px 13px !important;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--danger);
+}
+
+td form button:hover {
+    background: #b91c1c;
+}
+
+
+/* =====================================
+   SEARCH AND FILTERS
+===================================== */
+
+form[method="GET"] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px !important;
+    max-width: none;
+    margin: 25px 0 18px;
+}
+
+form[method="GET"] input,
+form[method="GET"] select {
+    width: auto;
+    min-width: 150px;
+    flex: 1 1 150px;
+    height: 43px;
+    padding: 10px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    outline: none;
+}
+
+form[method="GET"] input {
+    flex: 2 1 250px;
+}
+
+form[method="GET"] input:focus,
+form[method="GET"] select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+form[method="GET"] button {
+    margin: 0;
+    height: 43px;
+    padding: 0 20px;
+    white-space: nowrap;
+}
+
+form[method="GET"] > a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+}
+
+form[method="GET"] > a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================
+   ADD AND EDIT FORMS
+===================================== */
+
+form:not([method="GET"]):not(td form) {
+    margin-top: 22px;
+    max-width: 650px;
+}
+
+form label {
+    display: block;
+    margin: 18px 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+form:not([method="GET"]) input,
+form:not([method="GET"]) select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+}
+
+form:not([method="GET"]) input:focus,
+form:not([method="GET"]) select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+form:not([method="GET"]) button {
+    margin-top: 22px;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+form:not([method="GET"]) button:hover {
+    background: var(--primary-dark);
+}
+
+
+/* =====================================
+   GENERAL BUTTONS
+===================================== */
+
+button {
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 1000px) {
+
+    .main-content {
+        padding: 25px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 16px;
+        font-size: 21px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .sidebar a {
+        padding: 10px 13px;
+        font-size: 13px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+        transform: none;
+    }
+
+    .main-content {
+        padding: 20px;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .recent-students {
+        padding: 17px;
+        overflow-x: auto;
+    }
+
+    .recent-students table {
+        min-width: 650px;
+    }
+
+    form[method="GET"] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form[method="GET"] input,
+    form[method="GET"] select {
+        width: 100%;
+        flex: none;
+    }
+
+    form[method="GET"] button {
+        width: 100%;
+    }
+
+}
+
+/* Flash Messages */
+
+.alert {
+    padding: 14px 18px;
+    margin: 15px 0 22px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.alert-success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+
+@media (max-width: 420px) {
+
+    .main-content {
+        padding: 14px;
+    }
+
+    .sidebar nav {
+        gap: 5px;
+    }
+
+    .sidebar a {
+        font-size: 12px;
+        padding: 9px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .recent-students {
+        padding: 14px;
+    }
+
+}

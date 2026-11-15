@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student | StudentHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+        <aside class="sidebar">
+            <h2>StudentHub</h2>
+
+            <nav>
+                <a href="/">Dashboard</a>
+                <a href="/students" class="active">Students</a>
+                <a href="/add-student">Add Student</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <header>
+                <h1>Edit Student</h1>
+                <p>Update the student's information below.</p>
+            </header>
+
+            <section class="recent-students">
+
+                <h2>Student Information</h2>
+
+                <form method="POST">
+
+                    <label>Roll Number</label>
+                    <input type="text" name="roll_no"
+                           value="{{ student.roll_no }}" required>
+
+                    <label>First Name</label>
+                    <input type="text" name="first_name"
+                           value="{{ student.first_name }}" required>
+
+                    <label>Last Name</label>
+                    <input type="text" name="last_name"
+                           value="{{ student.last_name or '' }}">
+
+                    <label>Email</label>
+                    <input type="email" name="email"
+                           value="{{ student.email or '' }}">
+
+                    <label>Gender</label>
+                    <input type="text" name="gender"
+                           value="{{ student.gender or '' }}">
+
+                    <label>Course</label>
+                    <input type="text" name="course"
+                           value="{{ student.course }}" required>
+
+                    <label>Semester</label>
+                    <input type="number" name="semester"
+                           value="{{ student.semester }}"
+                           min="1" max="8" required>
+
+                    <label>Phone</label>
+                    <input type="text" name="phone"
+                           value="{{ student.phone or '' }}">
+
+                    <label>Admission Date</label>
+                    <input type="date" name="admission_date"
+                           value="{{ student.admission_date }}" required>
+
+                    <br><br>
+
+                    <button type="submit">Update Student</button>
+
+                    <a href="{{ url_for('students') }}">Cancel</a>
+
+                </form>
+
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>

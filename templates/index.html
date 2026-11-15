@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <h2>StudentHub</h2>
+
+            <nav>
+                <a href="/" class="active">Dashboard</a>
+                <a href="/students">Students</a>
+                <a href="/add-student">Add Student</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            <header>
+                <h1>Dashboard</h1>
+                <p>Welcome to Student Management System</p>
+            </header>
+
+            <!-- Dynamic Dashboard Cards -->
+            <section class="cards">
+
+                <div class="card">
+                    <h3>Total Students</h3>
+                    <h2>{{ total_students }}</h2>
+                </div>
+
+                <div class="card">
+                    <h3>Total Courses</h3>
+                    <h2>{{ total_courses }}</h2>
+                </div>
+
+                <div class="card">
+                    <h3>Active Semesters</h3>
+                    <h2>{{ active_semesters }}</h2>
+                </div>
+
+            </section>
+
+            <!-- Recent Students -->
+            <section class="recent-students">
+
+                <h2>Recent Students</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Roll No.</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Semester</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for student in recent_students %}
+
+                        <tr>
+                            <td>{{ student.roll_no }}</td>
+
+                            <td>
+                                {{ student.first_name }}
+                                {{ student.last_name or '' }}
+                            </td>
+
+                            <td>{{ student.course }}</td>
+
+                            <td>{{ student.semester }}</td>
+                        </tr>
+
+                        {% else %}
+
+                        <tr>
+                            <td colspan="4">No students registered yet.</td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
