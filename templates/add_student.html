@@ -46,7 +46,7 @@
 
                 <h2>Student Information</h2>
 
-                <form action="/add-student" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
                     <label>Roll Number</label>
                     <input type="text" name="roll_no"

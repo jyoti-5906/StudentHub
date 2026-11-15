@@ -46,6 +46,12 @@
 
                 <form method="POST">
 
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <!-- Keep all your existing input fields and buttons here -->
+
+</form>
+
                     <label>Roll Number</label>
                     <input type="text" name="roll_no"
                            value="{{ student.roll_no }}" required>

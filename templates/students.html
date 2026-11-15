@@ -136,15 +136,17 @@
                                 </a>
 
                                 <form method="POST"
-                                      action="{{ url_for('delete_student', student_id=student.student_id) }}"
-                                      style="display:inline;"
-                                      onsubmit="return confirm('Are you sure you want to delete this student?');">
+      action="{{ url_for('delete_student', student_id=student.student_id) }}"
+      style="display:inline;"
+      onsubmit="return confirm('Are you sure you want to delete this student?');">
 
-                                    <button type="submit">
-                                        Delete
-                                    </button>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-                                </form>
+    <button type="submit">
+        Delete
+    </button>
+
+</form>
 
                             </td>
 

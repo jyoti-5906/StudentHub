@@ -1,4 +1,3 @@
-
 import mysql.connector
 import os
 from dotenv import load_dotenv
@@ -7,8 +6,12 @@ load_dotenv(override=True)
 
 def get_connection():
     return mysql.connector.connect(
-        host=os.getenv("DB_HOST", "localhost"),
-        user=os.getenv("DB_USER", "root"),
+        host=os.getenv("DB_HOST"),
+        port=int(os.getenv("DB_PORT", 4000)),
+        user=os.getenv("DB_USER"),
         password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME", "student_management")
+        database=os.getenv("DB_NAME"),
+        ssl_ca=os.getenv("DB_SSL_CA"),
+        ssl_verify_cert=True,
+        ssl_verify_identity=True
     )
